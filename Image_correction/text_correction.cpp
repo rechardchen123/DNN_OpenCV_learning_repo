@@ -1,5 +1,5 @@
 /*********************************************************************************
-*FileName:  // image correction 
+*FileName:  // image correction  基于离散点求最小外接轮廓
 *Author:  //richard_chen
 *Version:  //1.0
 *Date:  //2020-05-30

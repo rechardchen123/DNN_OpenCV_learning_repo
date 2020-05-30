@@ -4,7 +4,8 @@ project(image_correction)
 set(CMAKE_CXX_STANDARD 11)
 
 
-add_executable(image_correction text_correction.cpp)
+#add_executable(image_correction text_correction.cpp)
+add_executable(image_correction text_correction_FFT.cpp)
 set(OpenCV_DIR C:/Users/ucesxc0/Downloads/opencv-4.2.0/minGW-build)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
