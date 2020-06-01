@@ -5,29 +5,42 @@
 using namespace std;
 using namespace cv;
 
-int main() {
-    Mat image = imread("C:\\Users\\ucesxc0\\CLionProjects\\detectQRCode\\1.jpg");
-    if (image.empty()) {
+int main()
+{
+    Mat image = imread("../1.jpg");
+
+    if (image.empty())
+    {
         cout << "Please confirm the filename" << endl;
         return -1;
     }
+
     Mat gray, qrcode_1;
+
     cvtColor(image, gray, COLOR_BGR2GRAY); // binary the image
     QRCodeDetector qrCodeDetector;
     vector<Point> points;
     string information;
+
     bool isQRCode;
     isQRCode = qrCodeDetector.detect(gray, points); // identify the QR code
-    if (isQRCode) {
+
+    if (isQRCode)
+    {
         information = qrCodeDetector.decode(gray, points, qrcode_1);
         cout << points << endl; //output the four coordination
-    } else {
+    }
+    else
+    {
         cout << "Cannot identify the QR code, please input the correct format." << endl;
         return -1;
     }
+
     // draw the QRcode frame
-    for (int i = 0; i < points.size(); i++) {
-        if (i == points.size() - 1) {
+    for (int i = 0; i < points.size(); i++)
+    {
+        if (i == points.size() - 1)
+        {
             line(image, points[i], points[0], Scalar(0, 0, 255), 2, 8);
             break;
         }
